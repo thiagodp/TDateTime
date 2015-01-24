@@ -76,17 +76,18 @@ class TDateTime extends \DateTime {
 	
 	// ATTRIBUTE HANDLING _____________________________________________________
 	
-	function getGlobalDateTimeFormat() { return self::$globalDateTimeFormat; }
-	function setGlobalDateTimeFormat( $format ) { self::$globalDateTimeFormat = $format; return $this; }
+	static function getGlobalDateTimeFormat() { return self::$globalDateTimeFormat; }
+	static function setGlobalDateTimeFormat( $format ) { self::$globalDateTimeFormat = $format; }
 	
-	function getGlobalDateFormat() { return self::$globalDateFormat; }
-	function setGlobalDateFormat( $format ) { self::$globalDateFormat = $format; return $this; }
+	static function getGlobalDateFormat() { return self::$globalDateFormat; }
+	static function setGlobalDateFormat( $format ) { self::$globalDateFormat = $format; }
 	
-	function getGlobalTimeFormat() { return self::$globalTimeFormat; }
-	function setGlobalTimeFormat( $format ) { self::$globalTimeFormat = $format; return $this; }
+	static function getGlobalTimeFormat() { return self::$globalTimeFormat; }
+	static function setGlobalTimeFormat( $format ) { self::$globalTimeFormat = $format; }
 	
-	function getGlobalSimpleTimeFormat() { return self::$globalSimpleTimeFormat; }
-	function setGlobalSimpleTimeFormat( $format ) { self::$globalSimpleTimeFormat = $format; return $this; }
+	static function getGlobalSimpleTimeFormat() { return self::$globalSimpleTimeFormat; }
+	static function setGlobalSimpleTimeFormat( $format ) { self::$globalSimpleTimeFormat = $format; }
+	
 	
 	function getLocalDateTimeFormat() { return $this->localDateTimeFormat; }
 	function setLocalDateTimeFormat( $format ) { $this->localDateTimeFormat = $format; return $this; }
