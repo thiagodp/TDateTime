@@ -1,10 +1,10 @@
 {
-	"name": "phputil/TDateTime",
+	"name": "phputil/tdatetime",
 	"type": "library",
-	"description": "Extends the features of PHP DateTime",
+	"description": "Extends the features of PHP's DateTime",
 	"keywords": ["time", "date", "datetime"],
-	"homepage": "http://github.com/thiagodp/TdateTime",
-	"license": "BSD-3",
+	"homepage": "http://github.com/thiagodp/TDateTime",
+	"license": "LGPL-3",
 	"authors": [
 		{
 			"name": "Thiago Delgado Pinto",
