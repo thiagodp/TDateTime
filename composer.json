@@ -1,0 +1,31 @@
+{
+	"name": "phputil/TDateTime",
+	"type": "library",
+	"description": "Extends the features of PHP DateTime",
+	"keywords": ["time", "date", "datetime"],
+	"homepage": "http://github.com/thiagodp/TdateTime",
+	"license": "BSD-3",
+	"authors": [
+		{
+			"name": "Thiago Delgado Pinto",
+			"email": "thiago-dp@bol.com.br",
+			"role" : "Developer"
+		}
+	],
+	"support": {
+		"issues": "https://github.com/thiagodp/TDateTime/issues",
+		"source": "https://github.com/thiagodp/TDateTime"
+	},
+	"minimum-stability": "dev",
+	"require": {
+		"php": ">=5.2.0"
+	},
+	"require-dev": {
+        "phpunit/phpunit": "4.*"
+    },	
+	"suggest": {
+	},
+	"autoload": {
+		"classmap": [ "lib/" ]
+	}
+}
