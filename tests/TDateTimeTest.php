@@ -1,7 +1,7 @@
 <?php
 namespace PHPUtil\Tests;
 
-require_once '../lib/TDateTime.php';
+require_once 'lib/TDateTime.php'; // phpunit will be executed from the project root
 
 use PHPUnit_Framework_TestCase;
 use PHPUtil\TDateTime;
