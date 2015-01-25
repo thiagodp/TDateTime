@@ -1,6 +1,8 @@
 # TDateTime
 A simple but useful extension for PHP's [DateTime](http://php.net/manual/en/class.datetime.php) class. PHP >= 5.4
 
+[![Build Status](https://travis-ci.org/thiagodp/TDateTime.svg?branch=master)](https://travis-ci.org/thiagodp/TDateTime)
+
 Available classes:
 - [TDateTime](https://github.com/thiagodp/TDateTime/blob/master/lib/TDateTime.php)
 - [TDate](https://github.com/thiagodp/TDateTime/blob/master/lib/TDate.php)
