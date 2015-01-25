@@ -7,12 +7,12 @@ Available classes:
 - [TTime](https://github.com/thiagodp/TDateTime/blob/master/lib/TTime.php)
 
 Installation via [Composer](https://getcomposer.org/):
-```
+```shell
 composer require thiagodp/tdatetime:dev-master
 ```
 
 Example on how to use it:
-```
+```php
 <?php
 require 'TDateTime.php';
 
