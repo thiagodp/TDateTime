@@ -6,6 +6,11 @@ Available classes:
 - [TDate](https://github.com/thiagodp/TDateTime/blob/master/lib/TDate.php)
 - [TTime](https://github.com/thiagodp/TDateTime/blob/master/lib/TTime.php)
 
+Installation via [Composer](https://getcomposer.org/):
+```
+composer require thiagodp/tdatetime:dev-master
+```
+
 Example on how to use it:
 ```
 <?php
