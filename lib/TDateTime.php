@@ -104,28 +104,28 @@ class TDateTime extends \DateTime {
 	
 	function dateTimeFormat() {
 		return $this->getLocalDateTimeFormat() === null
-			? $this->getGlobalDateTimeFormat()
+			? self::getGlobalDateTimeFormat()
 			: $this->getLocalDateTimeFormat()
 			;
 	}
 	
 	function dateFormat() {
 		return $this->getLocalDateFormat() === null
-			? $this->getGlobalDateFormat()
+			? self::getGlobalDateFormat()
 			: $this->getLocalDateFormat()
 			;
 	}
 	
 	function timeFormat() {
 		return $this->getLocalTimeFormat() === null
-			? $this->getGlobalTimeFormat()
+			? self::getGlobalTimeFormat()
 			: $this->getLocalTimeFormat()
 			;
 	}
 	
 	function simpleTimeFormat() {
 		return $this->getLocalSimpleTimeFormat() === null
-			? $this->getGlobalSimpleTimeFormat()
+			? self::getGlobalSimpleTimeFormat()
 			: $this->getLocalSimpleTimeFormat()
 			;
 	}
