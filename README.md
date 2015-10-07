@@ -13,7 +13,7 @@ Installation via [Composer](https://getcomposer.org/):
 composer require thiagodp/tdatetime:dev-master
 ```
 
-Example on how to use it:
+Documentation [here](https://github.com/thiagodp/TDateTime/wiki). Example on how to use it:
 ```php
 <?php
 require 'TDateTime.php';
