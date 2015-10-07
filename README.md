@@ -1,5 +1,5 @@
 # TDateTime
-Simple and useful date and time extensions for PHP's [DateTime](http://php.net/manual/en/class.datetime.php) class. No external dependencies. For PHP >= 5.2
+Simple, useful, and unit-tested date and time extensions for PHP's [DateTime](http://php.net/manual/en/class.datetime.php) class. No external dependencies. For PHP >= 5.2
 
 [![Build Status](https://travis-ci.org/thiagodp/TDateTime.svg?branch=master)](https://travis-ci.org/thiagodp/TDateTime)
 
