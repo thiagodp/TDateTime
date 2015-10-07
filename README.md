@@ -54,3 +54,8 @@ echo '<br />', $dt1->equalTo( $dt2 ) ? '=' : '!=';		// !=
 ?>
 ```
 [Take a look](https://github.com/thiagodp/TDateTime/blob/master/lib/TDateTime.php). Enjoy it!
+
+How to run the tests:
+```console
+phpunit tests
+```

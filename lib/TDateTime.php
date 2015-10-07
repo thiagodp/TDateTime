@@ -1,6 +1,5 @@
 <?php
-
-namespace PHPUtil;
+namespace phputil;
 
 /**
  * A simple but useful PHP's DateTime extension. (PHP >= 5.2.0)

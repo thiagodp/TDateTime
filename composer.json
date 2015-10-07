@@ -1,6 +1,7 @@
 {
 	"name": "phputil/tdatetime",
 	"type": "library",
+	"version": "1.0.0",
 	"description": "Extends the features of PHP's DateTime",
 	"keywords": ["time", "date", "datetime"],
 	"homepage": "http://github.com/thiagodp/TDateTime",

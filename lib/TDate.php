@@ -1,6 +1,5 @@
 <?php
-
-namespace PHPUtil;
+namespace phputil;
 
 /**
  * A simple Date class.
@@ -27,6 +26,12 @@ class TDate extends TDateTime {
 	/** @inheritDoc */
 	function toAmericanFormat() { return $this->toAmericanDateFormat(); }
 
+	// VALUE UTILITIES ________________________________________________________
+	
+	/** @inheritDoc */
+	function newCopy() {
+		return clone $this;
+	}
 }
 
 ?>

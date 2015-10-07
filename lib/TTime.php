@@ -1,6 +1,5 @@
 <?php
-
-namespace PHPUtil;
+namespace phputil;
 
 /**
  * A simple Time class.
@@ -19,8 +18,14 @@ class TTime extends TDateTime {
 	// FORMAT-SPECIFIC CONVERSIONS ____________________________________________
 	
 	/** @inheritDoc */
-	function toDatabaseFormat() { return $this->toDatabaseTimeFormat(); }	
+	function toDatabaseFormat() { return $this->toDatabaseTimeFormat(); }
 	
+	// VALUE UTILITIES ________________________________________________________
+	
+	/** @inheritDoc */
+	function newCopy() {
+		return clone $this;
+	}	
 }
 
 ?>
