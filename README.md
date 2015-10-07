@@ -3,6 +3,8 @@ Simple, useful, and unit-tested date and time extensions for PHP's [DateTime](ht
 
 [![Build Status](https://travis-ci.org/thiagodp/TDateTime.svg?branch=master)](https://travis-ci.org/thiagodp/TDateTime)
 
+Current version: `1.0.0` (we use [Semantic Versioning](http://semver.org/)).
+
 Available classes:
 - [TDateTime](https://github.com/thiagodp/TDateTime/blob/master/lib/TDateTime.php) (extends PHP's ```\DateTime```)
 - [TDate](https://github.com/thiagodp/TDateTime/blob/master/lib/TDate.php) (extends ```TDateTime```)
@@ -59,6 +61,6 @@ echo '<br />', $dt1->equalTo( $dt2 ) ? '=' : '!=';		// !=
 [Take a look](https://github.com/thiagodp/TDateTime/blob/master/lib/TDateTime.php). Enjoy it!
 
 How to run the tests:
-```console
+```shell
 phpunit tests
 ```
