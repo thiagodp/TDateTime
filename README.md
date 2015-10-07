@@ -1,12 +1,12 @@
 # TDateTime
-A simple but useful extension for PHP's [DateTime](http://php.net/manual/en/class.datetime.php) class. PHP >= 5.4
+Simple and useful date and time extensions for PHP's [DateTime](http://php.net/manual/en/class.datetime.php) class. No external dependencies. For PHP >= 5.2
 
 [![Build Status](https://travis-ci.org/thiagodp/TDateTime.svg?branch=master)](https://travis-ci.org/thiagodp/TDateTime)
 
 Available classes:
-- [TDateTime](https://github.com/thiagodp/TDateTime/blob/master/lib/TDateTime.php)
-- [TDate](https://github.com/thiagodp/TDateTime/blob/master/lib/TDate.php)
-- [TTime](https://github.com/thiagodp/TDateTime/blob/master/lib/TTime.php)
+- [TDateTime](https://github.com/thiagodp/TDateTime/blob/master/lib/TDateTime.php) (extends PHP's ```\DateTime```)
+- [TDate](https://github.com/thiagodp/TDateTime/blob/master/lib/TDate.php) (extends ```TDateTime```)
+- [TTime](https://github.com/thiagodp/TDateTime/blob/master/lib/TTime.php) (extends ```TDateTime```)
 
 Installation via [Composer](https://getcomposer.org/):
 ```shell
