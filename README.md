@@ -12,7 +12,7 @@ Available classes:
 
 Installation via [Composer](https://getcomposer.org/):
 ```shell
-composer require thiagodp/tdatetime:dev-master
+composer require thiagodp/tdatetime
 ```
 
 Documentation [here](https://github.com/thiagodp/TDateTime/wiki). Example on how to use it:
@@ -62,5 +62,5 @@ echo '<br />', $dt1->equalTo( $dt2 ) ? '=' : '!=';		// !=
 
 How to run the tests:
 ```shell
-phpunit tests
+phpunit
 ```
