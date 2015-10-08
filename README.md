@@ -18,9 +18,9 @@ composer require thiagodp/tdatetime
 Documentation [here](https://github.com/thiagodp/TDateTime/wiki). Example on how to use it:
 ```php
 <?php
-require 'TDateTime.php';
+require 'vendor/autoload.php';
 
-use PHPUtil\TDateTime; // Allow to use TDateTime without the namespace
+use phputil\TDateTime; // Allow to use TDateTime without the namespace
 
 // Create a datetime.
 $dt1 = new TDateTime( '2015-01-20 09:10:55' );
