@@ -15,7 +15,10 @@ Installation via [Composer](https://getcomposer.org/):
 composer require thiagodp/tdatetime
 ```
 
-Documentation [here](https://github.com/thiagodp/TDateTime/wiki). Example on how to use it:
+## Documentation
+[See here](https://github.com/thiagodp/TDateTime/wiki).
+
+## Example
 ```php
 <?php
 require 'vendor/autoload.php';
