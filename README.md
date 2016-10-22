@@ -64,6 +64,9 @@ echo $dt1->equalTo( $dt2 ) ? '=' : '!='; // !=
 echo $dt1->isValidDatabaseDate( '2000/01/31' ); // true
 echo $dt1->isValidAmericanDate( '01/31/2000' ); // true
 echo $dt1->isValidBrazilianDate( '31/01/2000' ); // true
+echo $dt1->isValidDatabaseDateTime( '2000/01/31 23:59:59' ); // true
+echo $dt1->isValidAmericanDateTime( '01/31/2000 23:59:59' ); // true
+echo $dt1->isValidBrazilianDateTime( '31/01/2000 23:59:59' ); // true
 echo $dt1->isValidTime( '23:59:59' ); // true
 echo $dt1->isValidSimpleTime( '23:59' ); // true
 ?>
