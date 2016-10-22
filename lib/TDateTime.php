@@ -473,11 +473,11 @@ class TDateTime extends \DateTime {
 		return 1 === preg_match( $fmt, $time );		
 	}
 	
-	function isValidDatabaseDateTime( $dateTime, $separator = '/' ) {
+	function isValidDatabaseDateTime( $dateTime, $dateSeparator = '/', $timeSeparator = ':' ) {
 		$dt = explode( ' ', $dateTime );
 		if ( count( $dt ) < 2 ) { return false; }
-		return $this->isValidDatabaseDate( $dt[ 0 ] )
-			&& $this->isValidTime( $dt[ 1 ] );
+		return $this->isValidDatabaseDate( $dt[ 0 ], $dateSeparator )
+			&& $this->isValidTime( $dt[ 1 ], $timeSeparator );
 	}
 	
 	function isValidDatabaseDate( $date, $separator = '/' ) {
@@ -490,11 +490,11 @@ class TDateTime extends \DateTime {
 		return checkdate( $dateArray[ 1 ], $dateArray[ 2 ], $dateArray[ 0 ] ); // month, day, year		
 	}
 	
-	function isValidAmericanDateTime( $dateTime, $separator = '/' ) {
+	function isValidAmericanDateTime( $dateTime, $dateSeparator = '/', $timeSeparator = ':' ) {
 		$dt = explode( ' ', $dateTime );
 		if ( count( $dt ) < 2 ) { return false; }
-		return $this->isValidAmericanDate( $dt[ 0 ] )
-			&& $this->isValidTime( $dt[ 1 ] );
+		return $this->isValidAmericanDate( $dt[ 0 ], $dateSeparator )
+			&& $this->isValidTime( $dt[ 1 ], $timeSeparator );
 	}
 	
 	function isValidAmericanDate( $date, $separator = '/' ) {
@@ -507,11 +507,11 @@ class TDateTime extends \DateTime {
 		return checkdate( $dateArray[ 0 ], $dateArray[ 1 ], $dateArray[ 2 ] ); // month, day, year		
 	}	
 	
-	function isValidBrazilianDateTime( $dateTime, $separator = '/' ) {
+	function isValidBrazilianDateTime( $dateTime, $dateSeparator = '/', $timeSeparator = ':' ) {
 		$dt = explode( ' ', $dateTime );
 		if ( count( $dt ) < 2 ) { return false; }
-		return $this->isValidBrazilianDate( $dt[ 0 ] )
-			&& $this->isValidTime( $dt[ 1 ] );
+		return $this->isValidBrazilianDate( $dt[ 0 ], $dateSeparator )
+			&& $this->isValidTime( $dt[ 1 ], $timeSeparator );
 	}	
 	
 	function isValidBrazilianDate( $date, $separator = '/' ) {
