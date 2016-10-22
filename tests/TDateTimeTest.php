@@ -326,6 +326,83 @@ class TDateTimeTest extends PHPUnit_Framework_TestCase {
 	
 	// FORMAT-SPECIFIC CONVERSIONS ____________________________________________
 	
+	// VERIFICATION ___________________________________________________________
+	
+	function testIsValidTime() {
+		$this->assertTrue( $this->dt->isValidTime( '23:59' ) ); // ok
+		$this->assertTrue( $this->dt->isValidTime( '23:59:59' ) ); // ok
+		$this->assertFalse( $this->dt->isValidTime( '24:59' ) ); // invalid hour
+		$this->assertFalse( $this->dt->isValidTime( '23:60' ) ); // invalid minute
+		$this->assertFalse( $this->dt->isValidTime( '23:59:60' ) ); // invalid second
+	}
+	
+	function testIsValidSimpleTime() {
+		$this->assertTrue( $this->dt->isValidSimpleTime( '23:59' ) ); // ok
+		$this->assertFalse( $this->dt->isValidSimpleTime( '23:59:59' ) ); // invalid, seconds are not allowed
+		$this->assertFalse( $this->dt->isValidSimpleTime( '24:59' ) ); // invalid hour
+		$this->assertFalse( $this->dt->isValidSimpleTime( '23:60' ) ); // invalid minute
+	}
+	
+	function testIsValidDatabaseDateTime() {
+		$this->assertTrue( $this->dt->isValidDatabaseDateTime( '2000/1/1 00:00:00' ) ); // ok
+		$this->assertTrue( $this->dt->isValidDatabaseDateTime( '2000/12/31 23:59:59' ) ); // ok
+		$this->assertTrue( $this->dt->isValidDatabaseDateTime( '2000/12/31 23:59' ) ); // ok, without seconds	
+		
+		$this->assertFalse( $this->dt->isValidDatabaseDateTime( '2000/12/0 24:59:59' ) ); // invalid day
+		$this->assertFalse( $this->dt->isValidDatabaseDateTime( '2000/12/32 24:59:59' ) ); // invalid day
+		$this->assertFalse( $this->dt->isValidDatabaseDateTime( '2000/0/1 24:59:59' ) ); // invalid month
+		$this->assertFalse( $this->dt->isValidDatabaseDateTime( '2000/13/1 24:59:59' ) ); // invalid month
+		
+		$this->assertFalse( $this->dt->isValidDatabaseDateTime( '2000/12/31 24:59:59' ) ); // invalid hour
+		$this->assertFalse( $this->dt->isValidDatabaseDateTime( '2000/12/31 23:60:59' ) ); // invalid minute
+		$this->assertFalse( $this->dt->isValidDatabaseDateTime( '2000/12/31 23:59:60' ) ); // invalid second
+		
+		$this->assertTrue( $this->dt->isValidDatabaseDateTime( '2000/02/29 23:59:59' ) ); // ok, 2000 is a leap year!
+		
+		$this->assertFalse( $this->dt->isValidDatabaseDateTime( '2000/02/30 23:59:59' ) ); // invalid, 30 is too much for February
+		$this->assertFalse( $this->dt->isValidDatabaseDateTime( '2001/02/29 23:59:59' ) ); // invalid, 2001 is not a leap year
+	}
+
+	function testIsValidAmericanDateTime() {
+		$this->assertTrue( $this->dt->isValidAmericanDateTime( '1/1/2000 00:00:00' ) ); // ok
+		$this->assertTrue( $this->dt->isValidAmericanDateTime( '12/31/2000 23:59:59' ) ); // ok
+		$this->assertTrue( $this->dt->isValidAmericanDateTime( '12/31/2000 23:59' ) ); // ok, without seconds	
+		
+		$this->assertFalse( $this->dt->isValidAmericanDateTime( '12/0/2000 24:59:59' ) ); // invalid day
+		$this->assertFalse( $this->dt->isValidAmericanDateTime( '12/32/2000 24:59:59' ) ); // invalid day
+		$this->assertFalse( $this->dt->isValidAmericanDateTime( '0/1/2000 24:59:59' ) ); // invalid month
+		$this->assertFalse( $this->dt->isValidAmericanDateTime( '13/1/2000 24:59:59' ) ); // invalid month
+		
+		$this->assertFalse( $this->dt->isValidAmericanDateTime( '12/31/2000 24:59:59' ) ); // invalid hour
+		$this->assertFalse( $this->dt->isValidAmericanDateTime( '12/31/2000 23:60:59' ) ); // invalid minute
+		$this->assertFalse( $this->dt->isValidAmericanDateTime( '12/31/2000 23:59:60' ) ); // invalid second
+		
+		$this->assertTrue( $this->dt->isValidAmericanDateTime( '02/29/2000 23:59:59' ) ); // ok, 2000 is a leap year!
+		
+		$this->assertFalse( $this->dt->isValidAmericanDateTime( '02/30/2000 23:59:59' ) ); // invalid, 30 is too much for February
+		$this->assertFalse( $this->dt->isValidAmericanDateTime( '02/29/2001 23:59:59' ) ); // invalid, 2001 is not a leap year
+	}	
+	
+	function testIsValidBrazilianDateTime() {
+		$this->assertTrue( $this->dt->isValidBrazilianDateTime( '1/1/2000 00:00:00' ) ); // ok
+		$this->assertTrue( $this->dt->isValidBrazilianDateTime( '31/12/2000 23:59:59' ) ); // ok
+		$this->assertTrue( $this->dt->isValidBrazilianDateTime( '31/12/2000 23:59' ) ); // ok, without seconds	
+		
+		$this->assertFalse( $this->dt->isValidBrazilianDateTime( '0/12/2000 24:59:59' ) ); // invalid day
+		$this->assertFalse( $this->dt->isValidBrazilianDateTime( '32/12/2000 24:59:59' ) ); // invalid day
+		$this->assertFalse( $this->dt->isValidBrazilianDateTime( '1/0/2000 24:59:59' ) ); // invalid month
+		$this->assertFalse( $this->dt->isValidBrazilianDateTime( '1/13/2000 24:59:59' ) ); // invalid month
+		
+		$this->assertFalse( $this->dt->isValidBrazilianDateTime( '31/12/2000 24:59:59' ) ); // invalid hour
+		$this->assertFalse( $this->dt->isValidBrazilianDateTime( '31/12/2000 23:60:59' ) ); // invalid minute
+		$this->assertFalse( $this->dt->isValidBrazilianDateTime( '31/12/2000 23:59:60' ) ); // invalid second
+		
+		$this->assertTrue( $this->dt->isValidBrazilianDateTime( '29/02/2000 23:59:59' ) ); // ok, 2000 is a leap year!
+		
+		$this->assertFalse( $this->dt->isValidBrazilianDateTime( '30/02/2000 23:59:59' ) ); // invalid, 30 is too much for February
+		$this->assertFalse( $this->dt->isValidBrazilianDateTime( '29/02/2001 23:59:59' ) ); // invalid, 2001 is not a leap year
+	}
+	
 	// MAGIC METHODS __________________________________________________________
 	
 	function testToString() {

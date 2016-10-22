@@ -459,6 +459,88 @@ class TDateTime extends \DateTime {
 	function fromAmericanSimpleTimeString( $text, \DateTimeZone $timezone = null ) {
 		return $this->parse( self::AMERICAN_SIMPLE_TIME_FORMAT, $text, $timezone ); }	
 	
+	// VERIFICATION ___________________________________________________________
+	
+	function isValidTime( $time, $separator = ':' ) {
+		$re = $this->timeRE( $separator );
+		$fmt = '/^' . $re[ 'hour' ] . $re[ 'separator' ] . $re[ 'minute' ] . '(' . $re[ 'separator' ] . $re[ 'second' ] . ')?' . '$/';
+		return 1 === preg_match( $fmt, $time );
+	}
+	
+	function isValidSimpleTime( $time, $separator = ':' ) {
+		$re = $this->timeRE( $separator );
+		$fmt = '/^' . $re[ 'hour' ] . $re[ 'separator' ] . $re[ 'minute' ] . '$/';
+		return 1 === preg_match( $fmt, $time );		
+	}
+	
+	function isValidDatabaseDateTime( $dateTime, $separator = '/' ) {
+		$dt = explode( ' ', $dateTime );
+		if ( count( $dt ) < 2 ) { return false; }
+		return $this->isValidDatabaseDate( $dt[ 0 ] )
+			&& $this->isValidTime( $dt[ 1 ] );
+	}
+	
+	function isValidDatabaseDate( $date, $separator = '/' ) {
+		$re = $this->dateRE( $separator );
+		$fmt = '/^' . $re[ 'year' ] . $re[ 'separator' ] . $re[ 'month' ] . $re[ 'separator' ] . $re[ 'day' ] . '$/';
+		if ( preg_match( $fmt, $date ) !== 1 ) {
+			return false;
+		}
+		$dateArray = explode( $separator, $date ); // year/month/day
+		return checkdate( $dateArray[ 1 ], $dateArray[ 2 ], $dateArray[ 0 ] ); // month, day, year		
+	}
+	
+	function isValidAmericanDateTime( $dateTime, $separator = '/' ) {
+		$dt = explode( ' ', $dateTime );
+		if ( count( $dt ) < 2 ) { return false; }
+		return $this->isValidAmericanDate( $dt[ 0 ] )
+			&& $this->isValidTime( $dt[ 1 ] );
+	}
+	
+	function isValidAmericanDate( $date, $separator = '/' ) {
+		$re = $this->dateRE( $separator );
+		$fmt = '/^' . $re[ 'month' ] . $re[ 'separator' ] . $re[ 'day' ] . $re[ 'separator' ] . $re[ 'year' ] . '$/';
+		if ( preg_match( $fmt, $date ) !== 1 ) {
+			return false;
+		}
+		$dateArray = explode( $separator, $date ); // month/day/year
+		return checkdate( $dateArray[ 0 ], $dateArray[ 1 ], $dateArray[ 2 ] ); // month, day, year		
+	}	
+	
+	function isValidBrazilianDateTime( $dateTime, $separator = '/' ) {
+		$dt = explode( ' ', $dateTime );
+		if ( count( $dt ) < 2 ) { return false; }
+		return $this->isValidBrazilianDate( $dt[ 0 ] )
+			&& $this->isValidTime( $dt[ 1 ] );
+	}	
+	
+	function isValidBrazilianDate( $date, $separator = '/' ) {
+		$re = $this->dateRE( $separator );
+		$fmt = '/^' . $re[ 'day' ] . $re[ 'separator' ] . $re[ 'month' ] . $re[ 'separator' ] . $re[ 'year' ] . '$/';
+		if ( preg_match( $fmt, $date ) !== 1 ) {
+			return false;
+		}
+		$dateArray = explode( $separator, $date ); // day/month/year
+		return checkdate( $dateArray[ 1 ], $dateArray[ 0 ], $dateArray[ 2 ] ); // month, day, year		
+	}
+	
+	private function dateRE( $separator = '/' ) {
+		return array(
+			'day' => '(0?[1-9]|[12][0-9]|3[01])',
+			'month' => '(0?[1-9]|1[012])',
+			'year' => '[0-9]{4}',
+			'separator' => '\\' . $separator
+			);
+	}
+	
+	private function timeRE( $separator = ':' ) {
+		return array(
+			'hour' => '(0?[0-9]|1[0-9]|2[0-3])',
+			'minute' => '(0?[0-9]|[1-5][0-9])',
+			'second' => '(0?[0-9]|[1-5][0-9])',
+			'separator' => '\\' . $separator
+			);
+	}	
 	
 	// MAGIC METHODS __________________________________________________________
 	
