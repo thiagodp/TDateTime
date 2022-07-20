@@ -1,7 +1,7 @@
 {
 	"name": "phputil/tdatetime",
 	"type": "library",
-	"version": "1.0.0",
+	"version": "1.1.1",
 	"description": "Extends the features of PHP's DateTime",
 	"keywords": ["time", "date", "datetime"],
 	"homepage": "http://github.com/thiagodp/TDateTime",
@@ -17,13 +17,16 @@
 		"issues": "https://github.com/thiagodp/TDateTime/issues",
 		"source": "https://github.com/thiagodp/TDateTime"
 	},
+	"scripts": {
+		"test": "phpunit"
+	},
 	"minimum-stability": "dev",
 	"require": {
 		"php": ">=5.2.0"
 	},
 	"require-dev": {
         "phpunit/phpunit": "4.*"
-    },	
+    },
 	"suggest": {
 	},
 	"autoload": {
