@@ -1,24 +1,31 @@
 # TDateTime
-Simple, useful, and unit-tested date and time extensions for PHP's [DateTime](http://php.net/manual/en/class.datetime.php) class. No external dependencies. For PHP >= 5.2
 
 [![Build Status](https://travis-ci.org/thiagodp/TDateTime.svg?branch=master)](https://travis-ci.org/thiagodp/TDateTime)
 
-We use [Semantic Versioning](http://semver.org/). See [our releases](https://github.com/thiagodp/TDateTime/releases).
+Easy-to-use date and time extensions for PHP's [DateTime](http://php.net/manual/en/class.datetime.php) class.
 
-Available classes:
-- [TDateTime](https://github.com/thiagodp/TDateTime/blob/master/lib/TDateTime.php) (extends PHP's ```\DateTime```)
-- [TDate](https://github.com/thiagodp/TDateTime/blob/master/lib/TDate.php) (extends ```TDateTime```)
-- [TTime](https://github.com/thiagodp/TDateTime/blob/master/lib/TTime.php) (extends ```TDateTime```)
+* No external dependencies.
+* Unit-tested
+* Semantic versioning
+* PHP >= 5.2
+
+## Installation
 
 Installation via [Composer](https://getcomposer.org/):
 ```shell
-composer require thiagodp/tdatetime
+composer require phputil/tdatetime
 ```
 
 ## Documentation
-[See here](https://github.com/thiagodp/TDateTime/wiki).
 
-## Example
+Available classes:
+- [phputil\TDateTime](https://github.com/thiagodp/TDateTime/blob/master/lib/TDateTime.php) (extends PHP's `\DateTime`)
+- [phputil\TDate](https://github.com/thiagodp/TDateTime/blob/master/lib/TDate.php) (extends `phputil\TDateTime`)
+- [phputil\TTime](https://github.com/thiagodp/TDateTime/blob/master/lib/TTime.php) (extends `phputil\TDateTime`)
+
+📖 [See the Wiki](https://github.com/thiagodp/TDateTime/wiki).
+
+## Examples
 ```php
 <?php
 require 'vendor/autoload.php';
@@ -72,7 +79,6 @@ echo $dt1->isValidSimpleTime( '23:59' ); // true
 ?>
 ```
 
-How to run the tests:
-```shell
-phpunit
-```
+## License
+
+[LGPL](LICENSE) © [Thiago Delgado Pinto](https://github.com/thiagodp)
